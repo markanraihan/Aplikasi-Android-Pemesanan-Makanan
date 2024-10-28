@@ -19,22 +19,33 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val registerButton = findViewById<TextView>(R.id.tvRegister)
-        registerButton.setOnClickListener{
-            val intent = Intent (this , RegisterActivity::class.java)
+        registerButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
-
         val loginButton = findViewById<Button>(R.id.btnLogin)
-        loginButton.setOnClickListener{
+        loginButton.setOnClickListener {
             val username = findViewById<EditText>(R.id.etUsername).text.toString()
-            val passwoard = findViewById<EditText>(R.id.etPassword).text.toString()
-            if (username == "arkan" && passwoard == "123"){
-                val intent = Intent (this , ListFoodActivity::class.java)
+            val password = findViewById<EditText>(R.id.etPassword).text.toString()
+
+            // Get the saved username and password from SharedPreferences
+            val sharedPrefs = getSharedPreferences("user_prefs", MODE_PRIVATE)
+            val savedUsername = sharedPrefs.getString("username", null)
+            val savedPassword = sharedPrefs.getString("password", null)
+
+            // Check if the entered username and password match the saved credentials
+            if (username == savedUsername && password == savedPassword) {
+                val intent = Intent(this, ListFoodActivity::class.java)
                 startActivity(intent)
+                Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
+            } else {
+                // Provide feedback to the user for incorrect login details
+                Toast.makeText(this, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
             }
         }
 
+        // Handle edge-to-edge display
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

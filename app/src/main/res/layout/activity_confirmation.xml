@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ConfirmationActivity">
+    tools:context=".ConfirmationActivity"
+    android:background="#87CEFA">
 
     <!-- Judul Halaman -->
     <TextView
@@ -18,18 +19,18 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:paddingTop="25dp"/>/>
 
-    <!-- Confirmation Nama Makanan -->
     <TextView
         android:id="@+id/tvFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Food Name: "
         android:textSize="18sp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="8dp"
+        android:paddingTop="12dp"/>/>
 
-    <!-- Confirmation Jumlah Porsi -->
     <TextView
         android:id="@+id/tvServings"
         android:layout_width="wrap_content"
@@ -38,7 +39,6 @@
         android:textSize="18sp"
         android:layout_marginBottom="8dp"/>
 
-    <!-- Confirmation Nama Pemesan -->
     <TextView
         android:id="@+id/tvOrderingName"
         android:layout_width="wrap_content"
@@ -47,7 +47,6 @@
         android:textSize="18sp"
         android:layout_marginBottom="8dp"/>
 
-    <!-- Input Catatan Tambahan -->
     <TextView
         android:id="@+id/tvNotes"
         android:layout_width="wrap_content"
@@ -56,20 +55,23 @@
         android:textSize="18sp"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Pesan Konfirmasi -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thanks for your order. Please wait for delivery by the nearest courier."
+        android:text="Terimakasih telah memesanan! Silahkan tunggu pesanan anda tiba"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="8dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="10dp"/>
 
     <!-- Tombol Kembali ke Menu -->
     <Button
         android:id="@+id/backtoMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back to Menu" />
+        android:layout_width="139dp"
+        android:layout_height="65dp"
+        android:backgroundTint="@color/light_gray"
+        android:text="Pesan Lagi"
+        android:textColor="@color/black" />
 
 </LinearLayout>
